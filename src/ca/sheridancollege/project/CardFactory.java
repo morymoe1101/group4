@@ -1,6 +1,6 @@
-/**
- * Factory class to create cards and decks for the Blackjack game.
- * Author: Group3
+/*
+  Factory class to create cards and decks for the Blackjack game.
+  Author: Group3
 =
  */
 package ca.sheridancollege.project;
@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class CardFactory {
 
-    /**
-     * Creates a standard 52-card deck and shuffles it.
+    /*
+      Creates a standard 52-card deck and shuffles it.
      */
     public static GroupOfCards createDeck() {
         GroupOfCards newDeck = new GroupOfCards(52);

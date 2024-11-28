@@ -1,6 +1,6 @@
-/**
- * Represents the Blackjack game, including gameplay and winner declaration.
- * Author: Group3
+/*
+  Represents the Blackjack game, including gameplay and winner declaration.
+  Author: Group3
  
  */
 package ca.sheridancollege.project;
@@ -15,8 +15,8 @@ public class Game {
     private ArrayList<Player> players; // List of players
     private GroupOfCards deck; // The deck of cards (Composition)
 
-    /**
-     * Private constructor for Singleton.
+    /*
+      Private constructor for Singleton.
      */
     private Game(String name) {
         this.name = name;
@@ -24,8 +24,8 @@ public class Game {
         this.deck = CardFactory.createDeck(); // Use the Factory method to create the deck
     }
 
-    /**
-     * Singleton method to get the instance of the Game.
+    /*
+      Singleton method to get the instance of the Game.
      */
     public static Game getInstance(String name) {
         if (instance == null) {
@@ -34,15 +34,15 @@ public class Game {
         return instance;
     }
 
-    /**
-     * Adds a player to the game.
+    /*
+      Adds a player to the game.
      */
     public void addPlayer(Player player) {
         this.players.add(player);
     }
 
-    /**
-     * Starts the game and handles gameplay.
+    /*
+      Starts the game and handles gameplay.
      */
     public void play() {
         Scanner scanner = new Scanner(System.in);
@@ -79,8 +79,8 @@ public class Game {
         scanner.close();
     }
 
-    /**
-     * Declares the winner based on scores.
+    /*
+      Declares the winner based on scores.
      */
     public void declareWinner() {
         Player winner = null;
@@ -101,15 +101,15 @@ public class Game {
         }
     }
 
-    /**
-     * Getter for the game name.
+    /*
+      Getter for the game name.
      */
     public String getName() {
         return name;
     }
 
-    /**
-     * Getter for the list of players.
+    /*
+      Getter for the list of players.
      */
     public ArrayList<Player> getPlayers() {
         return players;

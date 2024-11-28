@@ -1,5 +1,5 @@
-/**
- * The entry point for the Blackjack game. Initializes players and starts the game.
+/*
+  The entry point for the Blackjack game. Initializes players and starts the game.
  *Author: Group3
  
  */
@@ -8,14 +8,14 @@ package ca.sheridancollege.project;
 public class Main {
 
     public static void main(String[] args) {
-        // Get the instance of the game using Singleton
-        Game game = Game.getInstance("Blackjack");
-        // Add players to the game
-        game.addPlayer(new Player("Player 1"));
+        
+        Game game = Game.getInstance("Blackjack");// Get the instance of the game using Singleton
+       
+        game.addPlayer(new Player("Player 1")); // Add players to the game
         game.addPlayer(new Player("Player 2"));
 
-        // Start the game and declare the winner
+
         game.play();
-        game.declareWinner();
+        game.declareWinner();        // Start the game and declare the winners
     }
 }
