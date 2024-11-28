@@ -1,8 +1,8 @@
 /**
  * This class manages the deck of cards.
  * It shuffles the deck and deals cards to players.
- * Author: [Your Name]
- * Date: [Today's Date]
+ * Author: Group3
+ 
  */
 package ca.sheridancollege.project;
 
