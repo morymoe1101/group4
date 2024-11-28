@@ -1,7 +1,7 @@
 /**
  * Represents the Blackjack game, including gameplay and winner declaration.
- * Author: [Your Name]
- * Date: [Today's Date]
+ * Author: Group3
+ 
  */
 package ca.sheridancollege.project;
 
@@ -10,44 +10,32 @@ import java.util.Scanner;
 
 public class Game {
 
-    private final String name; // Encapsulation: The name of the game
-    private ArrayList<Player> players; // Aggregation: A collection of Player objects
-    private GroupOfCards deck; // Composition: The game owns the deck of cards
+    private static Game instance; // Singleton: Only one instance of Game
+    private final String name; // The name of the game
+    private ArrayList<Player> players; // List of players
+    private GroupOfCards deck; // The deck of cards (Composition)
 
     /**
-     * Constructor to initialize the game name and create the deck.
-     * - Composition: The game owns and manages its deck.
+     * Private constructor for Singleton.
      */
-    public Game(String name) {
+    private Game(String name) {
         this.name = name;
         this.players = new ArrayList<>();
-        this.deck = createDeck();
+        this.deck = CardFactory.createDeck(); // Use the Factory method to create the deck
     }
 
     /**
-     * Creates a standard 52-card deck.
-     * - Cohesion: Keeps deck creation logic within the game class.
+     * Singleton method to get the instance of the Game.
      */
-    private GroupOfCards createDeck() {
-        GroupOfCards newDeck = new GroupOfCards(52);
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-        int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
-
-        for (String suit : suits) {
-            for (int i = 0; i < ranks.length; i++) {
-                newDeck.getCards().add(new Card(suit, ranks[i], values[i]));
-            }
+    public static Game getInstance(String name) {
+        if (instance == null) {
+            instance = new Game(name); // Create a new instance if it doesn't exist
         }
-
-        newDeck.shuffle();
-        return newDeck;
+        return instance;
     }
 
     /**
      * Adds a player to the game.
-     * - Encapsulation: Provides controlled access to the player list.
-     * - Flexibility: Allows dynamic addition of players.
      */
     public void addPlayer(Player player) {
         this.players.add(player);
@@ -55,8 +43,6 @@ public class Game {
 
     /**
      * Starts the game and handles gameplay.
-     * - Cohesion: Focuses on the gameplay logic.
-     * - Flexibility: Easily extendable for new rules or features.
      */
     public void play() {
         Scanner scanner = new Scanner(System.in);
@@ -67,7 +53,7 @@ public class Game {
             boolean continuePlaying = true;
 
             while (continuePlaying && score <= 21) {
-                Card card = deck.getCards().remove(0);
+                Card card = deck.getCards().remove(0); // Deal the top card
                 System.out.println("You drew: " + card);
                 score += card.getValue();
                 System.out.println("Your current score: " + score);
@@ -95,7 +81,6 @@ public class Game {
 
     /**
      * Declares the winner based on scores.
-     * - Cohesion: Handles the winner declaration logic separately.
      */
     public void declareWinner() {
         Player winner = null;
@@ -118,7 +103,6 @@ public class Game {
 
     /**
      * Getter for the game name.
-     * - Encapsulation: Allows controlled access to the name field.
      */
     public String getName() {
         return name;
@@ -126,7 +110,6 @@ public class Game {
 
     /**
      * Getter for the list of players.
-     * - Encapsulation: Ensures controlled access to the player list.
      */
     public ArrayList<Player> getPlayers() {
         return players;
