@@ -1,7 +1,7 @@
 /**
  * Represents a player in the Blackjack game.
- * Author: [Your Name]
- * Date: [Today's Date]
+ Author: Group3
+
  */
 package ca.sheridancollege.project;
 
