@@ -1,7 +1,6 @@
 /**
  * Represents a single card in the Blackjack game.
- * Author: [Your Name]
- * Date: [Today's Date]
+ * Author:Group 3
  */
 package ca.sheridancollege.project;
 
